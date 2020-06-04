@@ -1,13 +1,20 @@
-# Rocketplate 🚀
+# Spacer 🌌
 
-Rocketplate is a javascript webpack/babel boilerplate
+Spacer is a search engine for anything space related 
+
+## Tech stack
+
+* React
+* Reach router
+* axios
+* react-masonry
 
 ## Installation
 
 Use git to clone repo
 
 ```bash
-git clone https://github.com/MaciejWiatr/webpack-boilerplate
+git clone https://github.com/MaciejWiatr/Spacer.git
 ```
 
 Install dependencies
