@@ -5,8 +5,7 @@ import { Router } from "@reach/router";
 import HeroSection from "./Components/HeroSection";
 import ResultsSection from "./Components/ResultsSection";
 import ErrorBoundary from "./ErrorBoundary";
-
-const NotFound = () => <p>Sorry, nothing here</p>;
+import NotFound from "./Components/404";
 
 const App = () => {
     const searchHook = useState({ data: {}, loading: false });
