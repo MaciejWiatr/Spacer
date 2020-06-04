@@ -1,10 +1,10 @@
 /* Boilerplate placeholder */
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,600;0,700;0,800;1,400;1,500&display=swap");
 *,
 *::before,
 *::after {
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat", sans-serif;
 
     box-sizing: border-box;
     padding: 0px;
@@ -19,6 +19,14 @@ body {
 #root {
     height: 100%;
     min-height: 100vh;
+
+    #router {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 }
 
 /* end of placeholder */

@@ -1,31 +1,35 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import SearchContext from "../../SearchContext";
 import axios from "axios";
+import { useNavigate } from "@reach/router";
 
-const Search = () => {
-    const [results, setResults] = useContext(SearchContext);
-    const [loading, setLoading] = useState(false);
+const Search = ({ inputValue }) => {
+    const [searchData, setSearchData] = useContext(SearchContext);
+    let query;
+    const [location, setLocation] = useState(inputValue ? inputValue : "");
+
+    const navigate = useNavigate();
 
     const handleSearch = (e) => {
         e.preventDefault();
         requestData(e.target.elements.query.value);
+        navigate(`/results/${query}`);
     };
 
     const requestData = async (q) => {
+        query = q;
         try {
-            setLoading(true);
+            setSearchData({ ...searchData, loading: true });
             const resp = await axios.get(
                 `https://images-api.nasa.gov/search?q=${q}&media_type=image`
             );
             let data = resp.data.collection.items;
-            console.log(data);
             data = data.map((data) => {
                 const img = data.links[0].href;
                 const description = data.data[0].description;
                 return { img, description };
             });
-            setLoading(false);
-            setResults(data);
+            setSearchData({ query, data, loading: false });
         } catch (error) {
             console.error(error);
         }
@@ -33,26 +37,14 @@ const Search = () => {
 
     return (
         <div className="search__container">
-            <div className="search__header">
-                <h1>Spacer</h1>
-                <h4>Superowa apka</h4>
-            </div>
             <form onSubmit={handleSearch} className="search__form">
-                <input name="query"></input>
+                <input
+                    onChange={(e) => setLocation(e.target.value)}
+                    name="query"
+                    value={location}
+                ></input>
+                <label htmlFor="query">Search</label>
             </form>
-
-            <div className="search__results">
-                {results.length > 0 ? (
-                    results.map((res, index) => (
-                        <div key={res.description + index}>
-                            <p>{res.description}</p>
-                            <img src={res.img} alt="img"></img>
-                        </div>
-                    ))
-                ) : loading ? (
-                    <p>Loading...</p>
-                ) : null}
-            </div>
         </div>
     );
 };
