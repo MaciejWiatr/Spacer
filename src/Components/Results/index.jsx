@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import SearchContext from "../../SearchContext";
 import Masonry from "react-masonry-css";
-import LoadingGif from "./loading.gif";
 
 const Results = () => {
     const [searchData] = useContext(SearchContext);
@@ -34,7 +33,10 @@ const Results = () => {
             ) : searchData.loading ? (
                 <div className="loading__container">
                     <p>Loading...</p>
-                    <img src={LoadingGif} alt="loading-gif"></img>
+                    <img
+                        src="https://i.imgur.com/5LazrM8.gif"
+                        alt="loading-gif"
+                    ></img>
                 </div>
             ) : null}
         </div>
