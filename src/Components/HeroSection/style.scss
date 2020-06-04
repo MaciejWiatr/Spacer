@@ -1,0 +1,60 @@
+.hero__section {
+    height: 100vh !important;
+    width: 100%;
+    display: flex;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-image: url("./bg.jpg");
+    background-size: cover;
+    background-position: center;
+
+    .search__section {
+        .search__header {
+            text-align: center;
+            margin: 20px 0px;
+
+            a {
+                text-decoration: none !important;
+            }
+
+            h1 {
+                font-size: 5rem;
+                margin: 10px 0px;
+                color: white;
+            }
+            h4 {
+                font-size: 1rem;
+            }
+        }
+
+        .search__container {
+            .search__form {
+                position: relative;
+                input {
+                    width: 100%;
+                    height: 50px;
+                    border: none;
+                    background: none;
+                    border-bottom: 2px solid white;
+                    color: white;
+                    &:focus {
+                        outline: none !important;
+                    }
+                    &:focus ~ label {
+                        top: -10px;
+                    }
+                }
+                label {
+                    pointer-events: none;
+                    position: absolute;
+                    transition: top 0.2s ease;
+                    left: 0px;
+                    top: 20px;
+                }
+            }
+        }
+    }
+}
