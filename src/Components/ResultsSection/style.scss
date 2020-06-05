@@ -7,6 +7,7 @@ body {
     header {
         position: -webkit-sticky; /* Safari */
         position: sticky;
+        z-index: 9999;
         top: 0;
         width: 100%;
         text-align: center !important;
@@ -15,7 +16,8 @@ body {
         h1 {
             font-size: 4rem;
             padding: 20px;
-            transition: font-size 0.25s ease;
+            transition: font-size 0.2s ease;
+            margin: 10px 0px;
         }
         a {
             text-decoration: none;
